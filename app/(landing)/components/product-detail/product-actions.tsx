@@ -2,8 +2,14 @@
 import { FiArrowRight, FiChevronDown, FiChevronUp, FiShoppingBag } from "react-icons/fi";
 import Button from "../ui/button";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 const ProductActions = () => {
+    const { push } = useRouter();
     const [qty, setQty] = useState(1);
+
+    const checkout = () =>{
+
+    }
     return (
         <div className="flex gap-5">
             <div className="border border-gray-500 grid grid-cols-3 shrink-0 min-w-21">
@@ -23,7 +29,8 @@ const ProductActions = () => {
                 <FiShoppingBag size={24} /> 
                 Add To Cart
             </Button>
-            <Button variant="dark" className="w-full">
+            <Button variant="dark" className="w-full"
+            onClick={() => push('/checkout')}>
                 Checkout Now 
                 <FiArrowRight size={24} />
             </Button>

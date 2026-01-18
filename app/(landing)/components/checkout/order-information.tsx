@@ -1,9 +1,8 @@
+import Card from "../ui/card";
+
 const OrderInformation = () => {
     return (
-        <div className="bg-white">
-            <div className="p-4 border-b border-gray-200">
-                <h2 className="font-bold text-lg">Order Information</h2>
-            </div>
+        <Card title="Order Information">
             <div className="p-4 space-y-4">
                 <div className="input-group">
                     <label htmlFor="full_name">Full Name</label>
@@ -19,7 +18,7 @@ const OrderInformation = () => {
                     rows={7}></textarea>
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 export default OrderInformation;

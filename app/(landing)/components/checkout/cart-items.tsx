@@ -1,15 +1,19 @@
+'use client'
 import { cartList } from "../ui/cart-popup";
 import Image from "next/image";
 import Button from "../ui/button";
 import { FiCreditCard, FiTrash2 } from "react-icons/fi";
 import priceFormatter from "@/app/utils/price-formatter";
+import Card from "../ui/card";
+import { useRouter } from "next/navigation";
 const CartItems = () => {
+    const {push} = useRouter();
     const totalPrice = cartList.reduce((total, item ) => total + item.price * item.qty, 0)
+    const payment = () => {
+
+    }
     return (
-        <div className="bg-white">
-            <div className="p-4 border-b border-gray-200">
-                <h2 className="font-bold text-lg">Cart Items</h2>
-            </div>
+        <Card title="Cart Items">
             <div className="divide-y divide-gray-200 overflow-y-auto max-h-75">
                 {
                     cartList.map((item, index) => (
@@ -43,12 +47,13 @@ const CartItems = () => {
                     <span className="text-sm">Total</span>
                     <span className="text-xs text-primary">{priceFormatter(totalPrice)}</span>
                 </div>
-                <Button className="w-full mt-4" variant="dark">
+                <Button className="w-full mt-4" variant="dark"
+                onClick={() => push("/payment")}>
                     <FiCreditCard/>
                     Proceed to Payment
                 </Button>
             </div>
-        </div>
+        </Card>
     )
 }
 export default CartItems;

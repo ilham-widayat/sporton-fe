@@ -10,12 +10,14 @@ export const Header = () => {
     return (
         <header className="fixed top-0 inset-x-0 backdrop-blur-sm z-50">
             <div className="container mx-auto flex justify-between gap-10 py-7">
-                <Image 
-                src="/images/logo.svg" 
-                alt="Sporton Logo" 
-                width={127} 
-                height={30} 
-                />
+                <Link href="/">
+                    <Image 
+                    src="/images/logo.svg" 
+                    alt="Sporton Logo" 
+                    width={127} 
+                    height={30} 
+                    />
+                </Link>
                 <nav className="flex items-center gap-23 font-medium">
                     <Link href="#hero-section" className="relative after:block after:bg-primary after:rounded-full after:h-0.75 after:w-2/3 after:absolute after:inset-x-0 after:mx-auto after:translate-y-1">Home</Link>
                     <Link href="#category-section">Category</Link>
